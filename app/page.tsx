@@ -4,6 +4,7 @@ import prisma from "./utils/db";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
+export const revalidate = 50;
 async function getData() {
   // await new Promise((resolve) => setTimeout(resolve, 6000));
   const data = await prisma.blogPost.findMany({
@@ -25,7 +26,7 @@ export default function Home() {
   return (
     <div className="py-6">
       <h1 className="text-3xl font-bold tracking-tight mb-8">Latest Post</h1>
-      <Suspense fallback={<BlogpostGrid/>}>
+      <Suspense fallback={<BlogpostGrid />}>
         <BlogPosts />
       </Suspense>
     </div>
@@ -59,4 +60,3 @@ function BlogpostGrid() {
     </div>
   );
 }
-
