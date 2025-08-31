@@ -22,9 +22,11 @@ type Params = Promise<{ id: string }>;
 export default async function IdPage({ params }: { params: Params }) {
   const { id } = await params;
   const data = await getData(id);
+
   <Link className={buttonVariants({ variant: "secondary" })} href="/">
     Back to posts
   </Link>;
+  
   return (
     <div className="max-w-3xl mx-auto py-8 px-4">
       <div className="mb-8 mt-6">
